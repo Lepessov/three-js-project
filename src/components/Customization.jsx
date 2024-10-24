@@ -42,6 +42,7 @@ export const CustomizationProvider = (props) => {
     const [hands, setHands] = useState(1)
     const [legs, setLegs] = useState(1)
     const [doorColor, setDoorColor] = useState(doorColors[2])
+    const [floating, setFloating] = useState(false)
 
     return <CustomizationContext.Provider value={{
         material,
@@ -53,6 +54,8 @@ export const CustomizationProvider = (props) => {
         doorColor,
         setDoorColor,
         doorColors,
+        floating,
+        setFloating,
     }}>
         {props.children}
     </CustomizationContext.Provider>

@@ -1,10 +1,17 @@
 import { useCusomization } from "./Customization";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBrush, faSocks, faHand, faImage } from '@fortawesome/free-solid-svg-icons';
+import { 
+    faBrush, 
+    faSocks, 
+    faHand, 
+    faImage,
+    faPlay,
+    faStop
+} from '@fortawesome/free-solid-svg-icons';
 
 
 const Configurator = () => {
-    const {setMaterial, setHands , setLegs, doorColor, doorColors, setDoorColor} = useCusomization()
+    const {setMaterial, setHands , setLegs, doorColor, doorColors, setDoorColor, setFloating, floating} = useCusomization()
 
     return <div className="configurator">
         <div className="configurator_section ">
@@ -45,9 +52,40 @@ const Configurator = () => {
             <div className="configurator_section_values dropdown">
             <button className="dropbtn"><FontAwesomeIcon icon={faImage} /></button>
                 <div class="dropdown-content">
-                    <a><button class="dropdown-item" type="button" onClick={() => setMaterial("wicker")}>classic</button></a>
-                    <a><button class="dropdown-item" type="button" onClick={() => setMaterial("stone")}>modern</button></a>
+                    <a><button class="dropdown-item" type="button" onClick={() => setMaterial("wicker")}>wood</button></a>
+                    <a><button class="dropdown-item" type="button" onClick={() => setMaterial("stone")}>stone</button></a>
                 </div>
+            </div>
+        </div>
+        <div className="configurator_section ">
+
+        </div>
+        <div className="configurator_section ">
+            
+        </div>
+        <div className="configurator_section ">
+            
+        </div>
+        <div className="configurator_section ">
+            
+        </div>
+        <div className="configurator_section ">
+            <div className="configurator_section_values dropdown">
+                <button 
+                    className={`floatOn ${floating ? '' : 'active'}`} 
+                    type="button" 
+                    onClick={() => setFloating(false)}
+                >
+                    <FontAwesomeIcon icon={faStop} />
+                </button>
+
+                <button 
+                    className={`floatOff ${floating ? 'active' : ''}`} 
+                    type="button" 
+                    onClick={() => setFloating(true)}
+                >
+                    <FontAwesomeIcon icon={faPlay} />
+                </button>
             </div>
         </div>
     </div>

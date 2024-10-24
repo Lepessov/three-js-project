@@ -15,14 +15,7 @@ function App() {
           <ScrollControls>
           <PresentationControls >
             <Stage adjustCamera={1} intensity={4} shadows={false} environment="sunset">
-            <Float
-              speed={3} 
-              rotationIntensity={1}
-              floatIntensity={1} 
-              floatingRange={[1, 2]}
-            >
               <Furniture/>
-              </Float>
             </Stage>
           </PresentationControls>
           </ScrollControls>

@@ -4,12 +4,12 @@ Command: npx gltfjsx@6.5.2 public/models/furniture.glb
 */
 
 import React from 'react'
-import { useGLTF, useTexture } from '@react-three/drei'
+import { useGLTF, useTexture, Decal, Float } from '@react-three/drei'
 import { useCusomization } from './Customization'
 import * as THREE from 'three'
 
 const Furniture = (props) => {
-  const {material, legs, hands, doorColor} = useCusomization()
+  const {material, legs, hands, doorColor, floating} = useCusomization()
 
   const { nodes, materials } = useGLTF('./models/furniture.glb')
 
@@ -56,11 +56,19 @@ const Furniture = (props) => {
   // materials['lambert1.002'])
 
   return (
+    <Float    
+      enabled={floating}
+      speed={3} 
+      rotationIntensity={1}
+      floatIntensity={2} 
+      floatingRange={[-2, 1]}
+    >
     <group castShadow position={[-5,0,0]} scale={[0.05,0.05,0.05]} {...props} dispose={null}>
       <mesh geometry={nodes.movel_lambert1_0.geometry}>
         <meshStandardMaterial {...(material == 'wicker'? stoneTextures : woodWickerTexture)}/> 
       </mesh>
-      <mesh geometry={nodes.livros_lambert2_0.geometry} material={materials['lambert2.002']} position={[4.675, 7.126, 128.607]} />
+      <mesh geometry={nodes.livros_lambert2_0.geometry} material={materials['lambert2.002']} position={[4.675, 7.126, 128.607]}>
+      </mesh>
 
       {/* doors */}
       <mesh geometry={nodes.Merged_lambert1_0.geometry} material={materials['lambert1.002']}>
@@ -69,7 +77,6 @@ const Furniture = (props) => {
       <mesh geometry={nodes.Porta_lambert1_0.geometry} material={materials['lambert1.002']}>
         <meshStandardMaterial color={doorColor.color}/>
       </mesh>
-
 
       <mesh 
         geometry={nodes.hande_1.geometry} 
@@ -176,6 +183,7 @@ const Furniture = (props) => {
         visible={legs === 2}
       />
     </group>
+    </Float>
   )
 }
 
