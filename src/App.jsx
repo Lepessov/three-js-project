@@ -14,7 +14,7 @@ function App() {
         <Canvas shadows camera={{ position: [0, 0, 20], fov: 75 }}>
           <ScrollControls>
           <PresentationControls >
-            <Stage preset="rembrandt" adjustCamera={false} intensity={0.5} shadows="contact" environment="city">
+            <Stage adjustCamera={1} intensity={4} shadows={false} environment="sunset">
             <Float
               speed={3} 
               rotationIntensity={1}

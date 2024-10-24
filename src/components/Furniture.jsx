@@ -56,7 +56,7 @@ const Furniture = (props) => {
   // materials['lambert1.002'])
 
   return (
-    <group position={[-5,0,0]} scale={[0.05,0.05,0.05]} {...props} dispose={null}>
+    <group castShadow position={[-5,0,0]} scale={[0.05,0.05,0.05]} {...props} dispose={null}>
       <mesh geometry={nodes.movel_lambert1_0.geometry}>
         <meshStandardMaterial {...(material == 'wicker'? stoneTextures : woodWickerTexture)}/> 
       </mesh>
